@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Dashboard</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+ <style>
+ body {
+  background: #f7f7f7;
+}
+
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 50px;
+  background: #ffffff;
+  border: 10px solid #f2f2f2;
+}
+
+h4, p {
+  text-align: center;
+}
+.form-group{
+	margin:5px;
+}
+input,textarea, .back {
+  width: 100%;
+}
+ </style>
+ </head>
+ 
+<body>
+ 
+<div class="container">
+<a href="/doctor" class="btn btn-success">
+                Home
+              </a>
+ <div class="form-box">
+  <h4>Edit Milk</h4>
+  
+  <form action="#" th:action=@{/updateMilks} th:object="${milk}" method="post" >
+   <input type="hidden" class="form-control" th:field="*{Id}" required/>
+        <div class="modal-body">
+          <div class="form-group">
+	      <label for="name">Collection Id</label>
+	       <input type="text" class="form-control" placeholder="Enter Collection Id" th:value="${milk.collectionId}" name="collectionId" required/>
+	     
+	    </div>
+	    
+	    <div class="form-group">
+	      <label for="cowNumber">Cow Number</label>
+	     <input type="text" class="form-control" placeholder="Enter Cow Number"  th:value="${milk.cowNumber}" name="cowNumber" required/>
+	    </div>
+	    <div class="form-group">
+	      <label for="date">Date</label>
+	      <input class="form-control" id="date" type="date" th:value="${milk.date}" name="date">
+	    </div>
+	    <div class="form-group">
+	      <label for="litre">Litre</label>
+	     <input type="number" class="form-control" placeholder="Enter Litre"  th:value="${milk.litre}" name="litre" required/>
+	    </div>
+	    <div class="form-group">
+	      <label for="price">Price</label>
+	     <input type="text" class="form-control" placeholder="Enter Price"  th:value="${milk.price}" name="price" required/>
+	    </div>
+	    <div class="form-group">
+	      <label for="total">Total</label>
+	     <input type="number" class="form-control" placeholder="Enter Total"  th:value="${milk.total}" name="total" required/>
+	    </div>
+	    
+	    
+   <br>
+    <input class="btn btn-primary" type="submit" value="Update" />
+    <br><br>
+    <a href="/staff" class="btn btn-dark back"><span>Back</span></a>
+    </div>
+  </form>
+</div>
+</div>
+
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
